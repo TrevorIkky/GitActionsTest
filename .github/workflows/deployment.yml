@@ -22,9 +22,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           script: |
             sudo chown -R ${{secrets.SSH_USERNAME}}:${{secrets.SSH_USERNAME}} /var/www
-            cd /var/www
-            mkdir -p git_actions
-            cd git_actions
+            cd /var/www/GitActionsTest
             git checkout main
             git pull origin main
             sudo chown -R apache:apache /var/www
