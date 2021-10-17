@@ -1,0 +1,26 @@
+name: Test Deployment
+on:
+  push:
+
+jobs:
+  update-test:
+    name: Update test repo on server
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          repository: TrevorIkky/GitActionsTest
+          token: ${{ secrets.ACTIONS_PAT }}
+          path: GitActionsTest
+      - name: Auto-pull
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          key: ${{ secrets.SSH_KEY }}
+          username: ${{ secrets.SSH_USERNAME }}
+          script: |
+            cd /var/www/git_actions
+            git checkout main
+            git pull origin main
