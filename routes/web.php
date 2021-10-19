@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-#The actions test succeeded and pulled successfully
+#The actions test succeeded and pulled successfully ..
 
 Route::get('/', function () {
     return view('welcome');
 });
+
