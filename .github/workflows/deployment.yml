@@ -6,7 +6,6 @@ jobs:
   update-test:
     name: Update test repo on server
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
